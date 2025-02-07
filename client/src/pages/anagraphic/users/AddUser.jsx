@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
-import { signup } from "../../../app/features/authSlice";
+import { addNewUser } from "../../../app/features/authSlice";
 import DashboardLayout from "../../../components/common/DashboardLayout";
 
 const AddUser = () => {
@@ -47,7 +47,7 @@ const AddUser = () => {
       password,
     };
 
-      await dispatch(signup(userData));
+      await dispatch(addNewUser(userData));
       
           navigate("/users");
       
