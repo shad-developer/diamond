@@ -1,0 +1,39 @@
+{
+    "Dashboard": "Dashboard",
+    "Anagraphic Data": "Anagraphic Data",
+    "Clients": "Clients",
+    "Suppliers": "Suppliers",
+    "Users": "Users",
+    "Quality": "Quality",
+    "Colors": "Colors",
+    "Large Stones": "Large Stones",
+    "Jewelery Rules": "Jewelery Rules",
+    "Jewelery Type": "Jewelery Type",
+  
+    "Warehouse": "Warehouse",
+    "Load": "Load",
+    "Stock": "Stock",
+    "Average Cost": "Average Cost",
+    "Update Prices": "Update Prices",
+    "Stone Stock": "Stone Stock",
+    "Jewelery Loading": "Jewelery Loading",
+  
+    "Received": "Received",
+    "Create Receipt": "Create Receipt",
+    "Customer Balance": "Customer Balance",
+    "Customer Payment": "Customer Payment",
+    "Receipt For Deposit": "Receipt For Deposit",
+    "Account Statement": "Account Statement",
+    "Jewellery Info": "Jewellery Info",
+  
+    "Invoices": "Invoices",
+    "Invoice Management": "Invoice Management",
+
+    "Authentication": "Authentication",
+    "Login": "Login",
+    "Signup": "Signup",
+    "Logout": "Logout",
+     "Please Login":"Please Login",
+     "Email":"Email",
+     "Password":"Password"
+}

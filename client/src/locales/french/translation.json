@@ -1,0 +1,39 @@
+{
+  "Dashboard": "Tableau De Bord",
+  "Anagraphic Data": "Données Anagraphiques",
+  "Clients": "Clients",
+  "Suppliers": "Fournisseurs",
+  "Users": "Utilisateurs",
+  "Quality": "Qualité",
+  "Colors": "Couleurs",
+  "Large Stones": "Grandes Pierres",
+  "Jewelery Rules": "Règles De Bijouterie",
+  "Jewelery Type": "Type De Bijou",
+
+  "Warehouse": "Entrepôt",
+  "Load": "Chargement",
+  "Stock": "Stock",
+  "Average Cost": "Coût Moyen",
+  "Update Prices": "Mise À Jour Des Prix",
+  "Stone Stock": "Stock De Pierres",
+  "Jewelery Loading": "Chargement De Bijoux",
+
+  "Received": "Reçu",
+  "Create Receipt": "Créer Un Reçu",
+  "Customer Balance": "Solde Client",
+  "Customer Payment": "Paiement Client",
+  "Receipt For Deposit": "Reçu Pour Dépôt",
+  "Account Statement": "Relevé De Compte",
+  "Jewellery Info": "Informations Sur Les Bijoux",
+
+  "Invoices": "Factures",
+  "Invoice Management": "Gestion Des Factures",
+
+  "Authentication": "Authentification",
+  "Login": "Se Connecter",
+  "Signup": "S'inscrire",
+  "Logout": "Déconnexion",
+  "Please Login":"Veuillez vous connecter",
+  "Email":"E-mail",
+  "Password":"Mot de passe"
+}

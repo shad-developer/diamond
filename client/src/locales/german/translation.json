@@ -1,0 +1,39 @@
+{
+  "Dashboard": "Dashboard",
+  "Anagraphic Data": "Anagrafische Daten",
+  "Clients": "Kunden",
+  "Suppliers": "Lieferanten",
+  "Users": "Benutzer",
+  "Quality": "Qualität",
+  "Colors": "Farben",
+  "Large Stones": "Große Steine",
+  "Jewelery Rules": "Schmuckregeln",
+  "Jewelery Type": "Schmuckart",
+
+  "Warehouse": "Lager",
+  "Load": "Ladung",
+  "Stock": "Bestand",
+  "Average Cost": "Durchschnittliche Kosten",
+  "Update Prices": "Preise Aktualisieren",
+  "Stone Stock": "Steinbestand",
+  "Jewelery Loading": "Schmuckbeladung",
+
+  "Received": "Erhalten",
+  "Create Receipt": "Beleg Erstellen",
+  "Customer Balance": "Kundensaldo",
+  "Customer Payment": "Kundenzahlung",
+  "Receipt For Deposit": "Einzahlungsbeleg",
+  "Account Statement": "Kontoauszug",
+  "Jewellery Info": "Schmuckinformationen",
+
+  "Invoices": "Rechnungen",
+  "Invoice Management": "Rechnungsverwaltung",
+
+  "Authentication": "Authentifizierung",
+  "Login": "Login",
+  "Signup": "Melden Sie Sich An",
+  "Logout": "Abmelden",
+   "Please Login":"Bitte melden Sie sich an",
+   "Email":"E-Mail",
+   "Password":"Passwort"
+}

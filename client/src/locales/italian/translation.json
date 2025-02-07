@@ -1,0 +1,40 @@
+{
+  "Dashboard": "Pannello Di Controllo",
+
+  "Anagraphic Data": "Dati Anagrafici",
+  "Clients": "Clienti",
+  "Suppliers": "Fornitori",
+  "Users": "Utenti",
+  "Quality": "Qualità",
+  "Colors": "Colori",
+  "Large Stones": "Pietre Grandi",
+  "Jewelery Rules": "Regole Dei Gioielli",
+  "Jewelery Type": "Tipo Di Gioiello",
+
+  "Warehouse": "Magazzino",
+  "Load": "Carico",
+  "Stock": "Azione",
+  "Average Cost": "Costo Medio",
+  "Update Prices": "Aggiorna Prezzi",
+  "Stone Stock": "Stock Di Pietra",
+  "Jewelery Loading": "Caricamento Gioielli",
+
+  "Received": "Ricevuto",
+  "Create Receipt": "Crea Ricevuta",
+  "Customer Balance": "Saldo Cliente",
+  "Customer Payment": "Pagamento Cliente",
+  "Receipt For Deposit": "Ricevuta Deposito",
+  "Account Statement": "Estratto Conto",
+  "Jewellery Info": "Informazioni Sui Gioielli",
+
+  "Invoices": "Fatture",
+  "Invoice Management": "Gestione Fattura",
+
+  "Authentication": "Autenticazione",
+  "Login": "Login",
+  "Signup": "Iscrizione",
+  "Logout": "Disconnettersi",
+   "Please Login":"Effettua il login",
+   "Email":"E-mail",
+   "Password":"Password"
+}
