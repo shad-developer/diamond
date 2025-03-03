@@ -27,6 +27,8 @@ import Colors from "./pages/anagraphic/colors/Colors";
 import AddColors from "./pages/anagraphic/colors/AddColors";
 import EditColor from "./pages/anagraphic/colors/EditColor";
 import Stones from "./pages/anagraphic/stones/Stones";
+import AddStones from "./pages/anagraphic/stones/AddStones";
+import EditStone from "./pages/anagraphic/stones/EditStone";
 
 axios.defaults.withCredentials = true;
 
@@ -75,8 +77,8 @@ function App() {
 
            {/* Stone Routes */}
            <Route path="/large-stones" exact element={<Stones />} />
-          {/* <Route path="/add-color" exact element={<AddColors />} />
-          <Route path="/update-color/:id" element={<EditColor />} /> */}
+          <Route path="/add-stone" exact element={<AddStones />} />
+          <Route path="//update-stone/:id" element={<EditStone />} />
 
         </Route> 
         {/* protected routes end here */}

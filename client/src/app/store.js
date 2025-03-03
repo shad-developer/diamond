@@ -4,6 +4,7 @@ import clientReducer from "./features/clientSlice";
 import supplierReducer from "./features/supplierSlice";
 import qualityReducer from "./features/qualitySlice";
 import colorReducer from "./features/colorSlice";
+import stoneReducer from "./features/stoneSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     supplier: supplierReducer,
     quality: qualityReducer,
     color: colorReducer,
+    stone: stoneReducer,
   },
 });
 

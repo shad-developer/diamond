@@ -4,30 +4,39 @@ import ReactPaginate from "react-paginate";
 import DashboardLayout from "../../../components/common/DashboardLayout";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteColor, getColors } from "../../../app/features/colorSlice";
+import {  getColors } from "../../../app/features/colorSlice";
 import { Grades, Proportion } from "../../../components/common/data";
+import { deleteStone, getAllStones } from "../../../app/features/stoneSlice";
 
 const Stones = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const colorPerPage = 10;
+  const stonePerPage = 10;
 
   // State for search fields
   const [searchName, setSearchName] = useState("");
+  const [searchDegree, setSearchDegree] = useState("");
+  const [searchColor, setSearchColor] = useState("");
+  const [searchProportion, setSearchProportion] = useState("");
+  const [searchFinish, setSearchFinish] = useState("");
+  const [searchBrilliance, setSearchBrilliance] = useState("");
 
   const dispatch = useDispatch();
 
-  const { colors, isLoading, isSuccess } = useSelector((state) => state.color);
+  const { stones } = useSelector((state) => state.stone);
+  const { colors } = useSelector((state) => state.color);
+
 
   useEffect(() => {
-    dispatch(getColors());
+    dispatch(getColors())
+    dispatch(getAllStones());
   }, [dispatch]);
 
-  const handleDeleteColor = async (id) => {
-    await dispatch(deleteColor(id));
-    await dispatch(getColors());
+  const handleDeleteStone = async (id) => {
+    await dispatch(deleteStone(id));
+    await dispatch(getAllStones());
   };
 
-  const pageCount = Math.ceil(colors?.length / colorPerPage);
+  const pageCount = Math.ceil(stones?.length / stonePerPage);
 
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
@@ -35,19 +44,26 @@ const Stones = () => {
 
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/add-color");
+    navigate("/add-stone");
   };
 
   // Filtering logic based on search inputs
-  const filteredColors = Array.isArray(colors)
-    ? colors.filter((color) => {
-        return color.name?.toLowerCase().includes(searchName.toLowerCase());
+  const filteredStones = Array.isArray(stones)
+    ? stones.filter((stone) => {
+      return stone?.certificateNo?.toLowerCase().includes(searchName.toLowerCase()) &&
+        stone?.degrees?.toLowerCase().includes(searchDegree.toLowerCase()) &&
+        stone?.color?.toLowerCase().includes(searchColor.toLowerCase()) &&
+        stone?.proportions?.toLowerCase().includes(searchProportion.toLowerCase()) &&
+        stone?.finish?.toLowerCase().includes(searchFinish.toLowerCase()) &&
+        stone?.brilliance?.toLowerCase().includes(searchBrilliance.toLowerCase());
       })
     : [];
 
+  
+  
   // Pagination after filtering
-  const offset = currentPage * colorPerPage;
-  const currentcolors = filteredColors.slice(offset, offset + colorPerPage);
+  const offset = currentPage * stonePerPage;
+  const currentStones = filteredStones.slice(offset, offset + stonePerPage);
 
   return (
     <DashboardLayout>
@@ -74,8 +90,11 @@ const Stones = () => {
           />
 
           {/* Grades DropDown */}
-          <select>
-            <option selected disabled>
+          <select
+            value={searchDegree}
+            onChange={(e) => setSearchDegree(e.target.value)}
+            className="border p-2 rounded w-full">
+            <option selected >
               Grade
             </option>
             {Grades?.map((grade) => (
@@ -86,8 +105,11 @@ const Stones = () => {
           </select>
 
           {/* Color Dropdown */}
-          <select>
-            <option selected disabled>
+          <select
+            value={searchColor}
+            onChange={(e) => setSearchColor(e.target.value)}
+            className="border p-2 rounded w-full">
+            <option selected>
               Color
             </option>
             {colors?.map((color) => (
@@ -98,8 +120,11 @@ const Stones = () => {
           </select>
 
           {/* proportion Dropdown */}
-          <select>
-            <option selected disabled>
+          <select
+             value={searchProportion}
+             onChange={(e) => setSearchProportion(e.target.value)}
+            className="border p-2 rounded w-full">
+            <option selected>
               Proportion
             </option>
             {Proportion?.map((proportion) => (
@@ -110,25 +135,31 @@ const Stones = () => {
           </select>
 
           {/* finish Dropdown */}
-          <select>
-            <option selected disabled>
+          <select
+            value={searchFinish}
+            onChange={(e) => setSearchFinish(e.target.value)}
+            className="border p-2 rounded w-full">
+            <option selected>
               Finish
             </option>
-            {colors?.map((color) => (
-              <option key={color?._id} value={color?.name}>
-                {color?.name}
+            {Proportion?.map((proportion) => (
+              <option key={proportion?._id} value={proportion?.value}>
+                {proportion?.value}
               </option>
             ))}
           </select>
 
           {/* Brilliance Dropdown */}
-          <select>
-            <option selected disabled>
+          <select
+           value={searchBrilliance}
+           onChange={(e) => setSearchBrilliance(e.target.value)}
+            className="border p-2 rounded w-full">
+            <option selected>
               Brilliance
             </option>
-            {colors?.map((color) => (
-              <option key={color?._id} value={color?.name}>
-                {color?.name}
+            {Proportion?.map((proportion) => (
+              <option key={proportion?._id} value={proportion?.value}>
+                {proportion?.value}
               </option>
             ))}
           </select>
@@ -140,26 +171,56 @@ const Stones = () => {
             <thead>
               <tr className="bg-gray-100">
                 <th className="border p-2 text-left">Sr.</th>
-                <th className="border p-2 text-left">Type</th>
+                <th className="border p-2 text-left">Certificate No</th>
+                <th className="border p-2 text-left">cuts</th>
+                <th className="border p-2 text-left">carats</th>
+                <th className="border p-2 text-left">Grade</th>
+                <th className="border p-2 text-left">color</th>
+                <th className="border p-2 text-left">proportions</th>
+                <th className="border p-2 text-left">finish</th>
+                <th className="border p-2 text-left">brilliance</th>
+                <th className="border p-2 text-left">fluorescence</th>
+                <th className="border p-2 text-left">price_per_carat</th>
+                <th className="border p-2 text-left">finished_stone_price</th>
+                <th className="border p-2 text-left">public_price</th>
+                <th className="border p-2 text-left">average</th>
+                <th className="border p-2 text-left">costs</th>
+                <th className="border p-2 text-left">finished_cost</th>
+                <th className="border p-2 text-left">total_compl</th>
                 <th className="border p-2 text-left">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {currentcolors.map((color, index) => (
+              {currentStones.map((stone, index) => (
                 <tr key={index} className="hover:bg-gray-50">
                   <td className="border p-2">{index + 1 + offset}</td>
-                  <td className="border p-2">{color?.name}</td>
+                  <td className="border p-2">{stone?.certificateNo}</td>
+                  <td className="border p-2">{stone?.cuts}</td>
+                  <td className="border p-2">{stone?.carats}</td>
+                  <td className="border p-2">{stone?.degrees}</td>
+                  <td className="border p-2">{stone?.color}</td>
+                  <td className="border p-2">{stone?.proportions}</td>
+                  <td className="border p-2">{stone?.finish}</td>
+                  <td className="border p-2">{stone?.brilliance}</td>
+                  <td className="border p-2">{stone?.fluorescence}</td>
+                  <td className="border p-2">{stone?.price_per_carat}</td>
+                  <td className="border p-2">{stone?.finished_stone_price}</td>
+                  <td className="border p-2">{stone?.public_price}</td>
+                  <td className="border p-2">{stone?.average}</td>
+                  <td className="border p-2">{stone?.costs}</td>
+                  <td className="border p-2">{stone?.finished_cost}</td>
+                  <td className="border p-2">{stone?.total_compl}</td>
                   <td className="border p-2">
                     <button className="text-green-500 hover:text-green-700 mr-3">
                       <NavLink
-                        to={`/update-color/${color?._id}`}
-                        aria-label="Edit Color"
+                        to={`/update-stone/${stone?._id}`}
+                        aria-label="Edit stone"
                       >
                         <FaEdit />
                       </NavLink>
                     </button>
                     <button
-                      onClick={() => handleDeleteColor(color?._id)}
+                      onClick={() => handleDeleteStone(stone?._id)}
                       className="text-red-500 hover:text-red-700"
                     >
                       <FaTrashAlt />
@@ -177,7 +238,7 @@ const Stones = () => {
             previousLabel={"Previous"}
             nextLabel={"Next"}
             breakLabel={"..."}
-            pageCount={Math.ceil(filteredColors.length / colorPerPage)}
+            pageCount={Math.ceil(filteredStones.length / stonePerPage)}
             marginPagesDisplayed={2}
             pageRangeDisplayed={5}
             onPageChange={handlePageClick}

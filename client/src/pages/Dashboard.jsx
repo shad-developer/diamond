@@ -1,37 +1,26 @@
 import React, { useState } from "react";
-
-import DashboardCard01 from "../partials/dashboard/DashboardCard01";
-import DashboardCard02 from "../partials/dashboard/DashboardCard02";
-import DashboardCard03 from "../partials/dashboard/DashboardCard03";
-import DashboardCard04 from "../partials/dashboard/DashboardCard04";
-import DashboardCard05 from "../partials/dashboard/DashboardCard05";
-import DashboardCard06 from "../partials/dashboard/DashboardCard06";
-import DashboardCard07 from "../partials/dashboard/DashboardCard07";
-import DashboardCard08 from "../partials/dashboard/DashboardCard08";
-import DashboardCard09 from "../partials/dashboard/DashboardCard09";
-import DashboardCard10 from "../partials/dashboard/DashboardCard10";
-import DashboardCard11 from "../partials/dashboard/DashboardCard11";
-import DashboardCard12 from "../partials/dashboard/DashboardCard12";
-import DashboardCard13 from "../partials/dashboard/DashboardCard13";
-
 import DashboardLayout from "../components/common/DashboardLayout";
+import ClientCard from "../partials/dashboard/ClientCard";
+import SupplierCard from "../partials/dashboard/SupplierCard";
+import UserCard from "../partials/dashboard/UserCard";
+import ColorCard from "../partials/dashboard/ColorCard";
+import StoneCard from "../partials/dashboard/StoneCard";
 
 function Dashboard() {
 
   return (
     <DashboardLayout>
       <div className="grid grid-cols-12 gap-6">
-        {/* Line chart (Acme Plus) */}
-        <DashboardCard01 />
-        {/* Line chart (Acme Advanced) */}
-        <DashboardCard02 />
-        {/* Line chart (Acme Professional) */}
-        <DashboardCard03 />
+      <UserCard />
+        <ClientCard />
+        <SupplierCard />
+        <ColorCard />
+        <StoneCard/>
        
         {/* Card (Customers) */}
-        <DashboardCard10 />
+        {/* <DashboardCard10 /> */}
         {/* Card (Reasons for Refunds) */}
-        <DashboardCard11 />
+        {/* <DashboardCard11 /> */}
       </div>
     </DashboardLayout>
   );

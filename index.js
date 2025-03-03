@@ -10,6 +10,7 @@ const clientRoute = require("./routes/clientRoute");
 const supplierRoute = require("./routes/supplierRoute");
 const qualityRoute = require("./routes/qualityRoute");
 const colorRoute = require("./routes/colorRoute");
+const stoneRoute = require('./routes/stoneRoute');
 
  
 // Database
@@ -36,12 +37,13 @@ app.use("/api/client", clientRoute);
 app.use("/api/supplier", supplierRoute);
 app.use("/api/quality", qualityRoute);
 app.use("/api/color", colorRoute);
+app.use("/api/stone", stoneRoute);
 
 
 app.use(express.static(path.join(_dirname, "/client/dist")));
-app.get("*", (_, res) => {
-  res.sendFile(path.join(_dirname, "client","dist","index.html"));
-})
+// app.get("*", (_, res) => {
+//   res.sendFile(path.join(_dirname, "client","dist","index.html"));
+// })
 
 // app listening
 app.listen(PORT, () =>
