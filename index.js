@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require("path");
 require("dotenv").config({ path: "./config/.env" });
 const express = require("express");
 const app = express();
@@ -10,9 +10,9 @@ const clientRoute = require("./routes/clientRoute");
 const supplierRoute = require("./routes/supplierRoute");
 const qualityRoute = require("./routes/qualityRoute");
 const colorRoute = require("./routes/colorRoute");
-const stoneRoute = require('./routes/stoneRoute');
+const stoneRoute = require("./routes/stoneRoute");
+const jewelleryRoute = require("./routes/jewelleryRoute");
 
- 
 // Database
 connectDB();
 
@@ -38,12 +38,12 @@ app.use("/api/supplier", supplierRoute);
 app.use("/api/quality", qualityRoute);
 app.use("/api/color", colorRoute);
 app.use("/api/stone", stoneRoute);
+app.use("/api/jewellery", jewelleryRoute);
 
-
-app.use(express.static(path.join(_dirname, "/client/dist")));
-// app.get("*", (_, res) => {
-//   res.sendFile(path.join(_dirname, "client","dist","index.html"));
-// })
+// app.use(express.static(path.join(_dirname, "/client/dist")));
+// // app.get("*", (_, res) => {
+// //   res.sendFile(path.join(_dirname, "client","dist","index.html"));
+// // })
 
 // app listening
 app.listen(PORT, () =>

@@ -29,6 +29,10 @@ import EditColor from "./pages/anagraphic/colors/EditColor";
 import Stones from "./pages/anagraphic/stones/Stones";
 import AddStones from "./pages/anagraphic/stones/AddStones";
 import EditStone from "./pages/anagraphic/stones/EditStone";
+import JewelleryRules from "./pages/anagraphic/jewellery_rules/JewelleryRules";
+import JewelleryTypes from "./pages/anagraphic/jewellery_types/JewelleryTypes";
+import AddJewelleryType from "./pages/anagraphic/jewellery_types/AddJewelleryType";
+import EditJewelleryType from "./pages/anagraphic/jewellery_types/EditJewelleryType";
 
 axios.defaults.withCredentials = true;
 
@@ -79,6 +83,14 @@ function App() {
            <Route path="/large-stones" exact element={<Stones />} />
           <Route path="/add-stone" exact element={<AddStones />} />
           <Route path="//update-stone/:id" element={<EditStone />} />
+
+          {/* jewellery rules */}
+          <Route path="/jewellery-rules" exact element={<JewelleryRules />} />
+          <Route path="/jewellery-type" exact element={<JewelleryTypes />} />
+          <Route path="/add-jewellery-type" exact element={<AddJewelleryType />} />
+          <Route path="/update-jewellery-type/:id" exact element={<EditJewelleryType />} />
+
+
 
         </Route> 
         {/* protected routes end here */}
