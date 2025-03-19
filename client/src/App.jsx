@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./css/style.css";
 import "./charts/ChartjsConfig";
@@ -10,29 +10,40 @@ import Dashboard from "./pages/Dashboard";
 import ProtectedRoutes from "./utils/protectedRoutes";
 import Login from "./pages/auth/Login";
 import Signup from './pages/auth/Signup';
+import Loader from "../../../INTERNEE/FC/client/src/components/common/Loader";
+import Lotts from "./pages/warehouse/Lots/Lotts";
+import AverageCost from "./pages/warehouse/AverageCost/AverageCost";
+import UpdatePrice from "./pages/warehouse/UpdatePrice/UpdatePrice";
+import StoneStock from "./pages/warehouse/StoneStock/StoneStock";
+import JewelleryLoad from "./pages/warehouse/JewelleryManagement/JewelleryLoad";
+import AddJewellery from "./pages/warehouse/JewelleryManagement/AddJewellery";
+import EditJewellery from "./pages/warehouse/JewelleryManagement/EditJewellery";
 
-import Clients from './pages/anagraphic/clients/Clients';
-import AddClients from './pages/anagraphic/clients/AddClients';
-import EditClient from './pages/anagraphic/clients/EditClient';
-import Users from './pages/anagraphic/users/Users';
-import AddUser from './pages/anagraphic/users/AddUser';
-import UpdateUser from './pages/anagraphic/users/UpdateUser';
-import AddSupplier from "./pages/anagraphic/suppliers/AddSupplier";
-import Suppliers from "./pages/anagraphic/suppliers/Suppliers";
-import EditSupplier from "./pages/anagraphic/suppliers/EditSupplier";
-import Quality from "./pages/anagraphic/quality/Quality";
-import AddQuality from "./pages/anagraphic/quality/AddQuality";
-import EditQuality from "./pages/anagraphic/quality/EditQuality";
-import Colors from "./pages/anagraphic/colors/Colors";
-import AddColors from "./pages/anagraphic/colors/AddColors";
-import EditColor from "./pages/anagraphic/colors/EditColor";
-import Stones from "./pages/anagraphic/stones/Stones";
-import AddStones from "./pages/anagraphic/stones/AddStones";
-import EditStone from "./pages/anagraphic/stones/EditStone";
-import JewelleryRules from "./pages/anagraphic/jewellery_rules/JewelleryRules";
-import JewelleryTypes from "./pages/anagraphic/jewellery_types/JewelleryTypes";
-import AddJewelleryType from "./pages/anagraphic/jewellery_types/AddJewelleryType";
-import EditJewelleryType from "./pages/anagraphic/jewellery_types/EditJewelleryType";
+const Clients = lazy(() => import("./pages/anagraphic/clients/Clients"));
+const AddClients = lazy(() => import("./pages/anagraphic/clients/AddClients"));
+const EditClient = lazy(() => import("./pages/anagraphic/clients/EditClient"));
+const Users = lazy(() => import("./pages/anagraphic/users/Users"));
+const AddUser = lazy(() => import("./pages/anagraphic/users/AddUser"));
+const UpdateUser = lazy(() => import("./pages/anagraphic/users/UpdateUser"));
+const AddSupplier = lazy(() => import("./pages/anagraphic/suppliers/AddSupplier"));
+const Suppliers = lazy(() => import("./pages/anagraphic/suppliers/Suppliers"));
+const EditSupplier = lazy(() => import("./pages/anagraphic/suppliers/EditSupplier"));
+const Quality = lazy(() => import("./pages/anagraphic/quality/Quality"));
+const AddQuality = lazy(() => import("./pages/anagraphic/quality/AddQuality"));
+const EditQuality = lazy(() => import("./pages/anagraphic/quality/EditQuality"));
+const Colors = lazy(() => import("./pages/anagraphic/colors/Colors"));
+const AddColors = lazy(() => import("./pages/anagraphic/colors/AddColors"));
+const EditColor = lazy(() => import("./pages/anagraphic/colors/EditColor"));
+const Stones = lazy(() => import("./pages/anagraphic/stones/Stones"));
+const AddStones = lazy(() => import("./pages/anagraphic/stones/AddStones"));
+const EditStone = lazy(() => import("./pages/anagraphic/stones/EditStone"));
+const JewelleryRules = lazy(() => import("./pages/anagraphic/jewellery_rules/JewelleryRules"));
+const JewelleryTypes = lazy(() => import("./pages/anagraphic/jewellery_types/JewelleryTypes"));
+const AddJewelleryType = lazy(() => import("./pages/anagraphic/jewellery_types/AddJewelleryType"));
+const EditJewelleryType = lazy(() => import("./pages/anagraphic/jewellery_types/EditJewelleryType"));
+const AddLots = lazy(() => import("./pages/warehouse/Lots/AddLots"));
+const EditLot = lazy(() => import("./pages/warehouse/Lots/EditLot"));
+const Stock = lazy(() => import("./pages/warehouse/Stock/Stock"));
 
 axios.defaults.withCredentials = true;
 
@@ -43,11 +54,12 @@ function App() {
     document.querySelector("html").style.scrollBehavior = "auto";
     window.scroll({ top: 0 });
     document.querySelector("html").style.scrollBehavior = "";
-  }, [location.pathname]); 
+  }, [location.pathname]);
 
   return (
     <>
       <ToastContainer autoClose={1000} />
+      <Suspense fallback={<Loader />}>
       <Routes>
         {/* Protected Routes */}
         <Route element={<ProtectedRoutes />}>
@@ -79,8 +91,8 @@ function App() {
           <Route path="/add-color" exact element={<AddColors />} />
           <Route path="/update-color/:id" element={<EditColor />} />
 
-           {/* Stone Routes */}
-           <Route path="/large-stones" exact element={<Stones />} />
+          {/* Stone Routes */}
+          <Route path="/large-stones" exact element={<Stones />} />
           <Route path="/add-stone" exact element={<AddStones />} />
           <Route path="//update-stone/:id" element={<EditStone />} />
 
@@ -90,15 +102,37 @@ function App() {
           <Route path="/add-jewellery-type" exact element={<AddJewelleryType />} />
           <Route path="/update-jewellery-type/:id" exact element={<EditJewelleryType />} />
 
+          {/* WareHouse Routes */}
+          {/* Load Route */}
+          <Route path="/lots" exact element={<Lotts />} />
+          <Route path="/add-lots" exact element={<AddLots />} />
+          <Route path="/update-lot/:id" exact element={<EditLot />} />
 
+          {/* Stock Route */}
+            <Route path="/stock" exact element={<Stock />} />
+            
+          {/* AverageCost Route */}
+          <Route path="/average-cost" exact element={<AverageCost />} />
+            
+          {/* update price route */}
+            <Route path="/update-price" exact element={<UpdatePrice />} />
 
-        </Route> 
+            {/* Stone Stock */}
+            <Route path="/stone-stock" exact element={<StoneStock />} />
+
+            {/* jewellery load managemnet */}
+            <Route path="/jewellery" exact element={<JewelleryLoad />} />
+          <Route path="/add-jewellery" exact element={<AddJewellery />} />
+          <Route path="/update-jewellery/:id" exact element={<EditJewellery />} />
+
+        </Route>
         {/* protected routes end here */}
 
         {/* public routes */}
         <Route path="/" exact element={<Login />} />
         <Route path="/signup" exact element={<Signup />} />
-      </Routes>
+        </Routes>
+        </Suspense>
     </>
   );
 }

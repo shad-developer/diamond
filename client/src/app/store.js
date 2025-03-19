@@ -6,6 +6,7 @@ import qualityReducer from "./features/qualitySlice";
 import colorReducer from "./features/colorSlice";
 import stoneReducer from "./features/stoneSlice";
 import jewelleryReducer from "./features/jewellerySlice";
+import lottReducer from "./features/lottSlice";
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     color: colorReducer,
     stone: stoneReducer,
     jewellery: jewelleryReducer,
+    lott: lottReducer,
   },
 });
 

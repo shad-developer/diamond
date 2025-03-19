@@ -1,4 +1,3 @@
-const { default: stoneService } = require("../client/src/app/services/stoneService");
 const Stone = require("../models/stoneModel");
 const User = require("../models/userModel");
 const asyncHandler = require("express-async-handler");

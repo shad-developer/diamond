@@ -110,12 +110,9 @@ module.exports.Login = asyncHandler(async (req, res) => {
       return res.status(404).json({ error: true, message: "User not found" });
     }
 
-    // const isMatch = await bcrypt.compare(password, user.password);
-    // if (!isMatch) {
-    //   return res
-    //     .status(401)
-    //     .json({ error: true, message: "Incorrect password" });
-    // }
+    if (password !== user.password) {
+      return res.status(401).json({ error: true, message: "Incorrect password" });
+    }
 
     if (user.status === 'blocked') {
       return res.status(403).json({
@@ -126,7 +123,6 @@ module.exports.Login = asyncHandler(async (req, res) => {
 
     generateToken(user, res);
 
-    user.lastLogin = new Date();
     await user.save();
 
     return res.json({

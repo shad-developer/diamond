@@ -12,6 +12,7 @@ const qualityRoute = require("./routes/qualityRoute");
 const colorRoute = require("./routes/colorRoute");
 const stoneRoute = require("./routes/stoneRoute");
 const jewelleryRoute = require("./routes/jewelleryRoute");
+const lottRoute = require("./routes/lottRoutes");
 
 // Database
 connectDB();
@@ -26,7 +27,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://diamond-gdwr.onrender.com",
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );
@@ -39,11 +40,12 @@ app.use("/api/quality", qualityRoute);
 app.use("/api/color", colorRoute);
 app.use("/api/stone", stoneRoute);
 app.use("/api/jewellery", jewelleryRoute);
+app.use("/api/lots", lottRoute);
 
-app.use(express.static(path.join(_dirname, "/client/dist")));
-app.get("*", (_, res) => {
-  res.sendFile(path.join(_dirname, "client","dist","index.html"));
-})
+// app.use(express.static(path.join(_dirname, "/client/dist")));
+// app.get("*", (_, res) => {
+//   res.sendFile(path.join(_dirname, "client","dist","index.html"));
+// })
 
 // app listening
 app.listen(PORT, () =>
