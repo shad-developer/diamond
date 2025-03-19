@@ -10,7 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import ProtectedRoutes from "./utils/protectedRoutes";
 import Login from "./pages/auth/Login";
 import Signup from './pages/auth/Signup';
-import Loader from ".components/common/Loader";
+import Loader from "./components/common/Loader";
 import Lotts from "./pages/warehouse/Lots/Lotts";
 import AverageCost from "./pages/warehouse/AverageCost/AverageCost";
 import UpdatePrice from "./pages/warehouse/UpdatePrice/UpdatePrice";
