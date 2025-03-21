@@ -42,10 +42,10 @@ app.use("/api/stone", stoneRoute);
 app.use("/api/jewellery", jewelleryRoute);
 app.use("/api/lots", lottRoute);
 
-// app.use(express.static(path.join(_dirname, "/client/dist")));
-// app.get("*", (_, res) => {
-//   res.sendFile(path.join(_dirname, "client","dist","index.html"));
-// })
+app.use(express.static(path.join(_dirname, "/client/dist")));
+app.get("*", (_, res) => {
+  res.sendFile(path.join(_dirname, "client","dist","index.html"));
+})
 
 // app listening
 app.listen(PORT, () =>
